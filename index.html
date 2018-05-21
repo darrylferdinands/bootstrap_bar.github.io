@@ -1,0 +1,167 @@
+<!DOCTYPE html>				
+<html>
+<head>
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<style>
+		#progress {
+  width: 250px;
+  margin: 20px auto;
+}
+		#progress1 {
+  width: 250px;
+  margin: 20px auto;
+}
+#myProgress {
+  width: 50%;
+  background-color: #d4f7ed;
+  border-radius: 10px;
+}
+
+#myBar {
+  width: 50%;
+  height: 20px;
+  background-color: #98ebd5;
+  text-align: center;
+  line-height: 20px;
+  color: white;
+  border-radius: 10px;
+}
+#myProgress1 {
+  width: 50%;
+  background-color: #f9f4d2;
+  border-radius: 10px;
+}
+
+#myBar1 {
+  width: 50%;
+  height: 20px;
+  background-color: #ede078;
+  text-align: center;
+  line-height: 20px;
+  color: white;
+  border-radius: 10px;
+}
+	</style>
+</head>
+<body><br>
+	<div class="container">
+	<div class="row" style="border: 1px solid lightgrey; border-radius: 10px;">
+<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+            
+            
+            <div> <a style="font-size: 12px;"> This Month Dispatched </a>
+
+            <div id="myProgress">
+
+            <div id="myBar">10%</div>
+
+        </div>
+<a style="font-size: 12px;"> Deliverable Items Dispatched </a>
+<div id="myProgress1">
+<div id="myBar1">50%</div>
+</div></div>
+<div id="dispatchActivities"></div>
+</div></div></div>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://rawgit.com/highcharts/rounded-corners/master/rounded-corners.js"></script>
+
+
+
+<script>
+
+
+
+window.onload = function(){
+  var elem = document.getElementById("myBar1");   
+  var width = 10;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 40) {
+      clearInterval(id);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      elem.innerHTML = width * 1  + '%';
+    }
+  
+};
+  var elem = document.getElementById("myBar");   
+  var width = 10;
+  var id = setInterval(frame, 10);
+  function frame() {
+    if (width >= 70) {
+      clearInterval(id1);
+    } else {
+      width++; 
+      elem.style.width = width + '%'; 
+      elem.innerHTML = width * 1  + '%';
+    }
+  
+}
+};
+
+
+Highcharts.chart('dispatchActivities', {
+    chart: {
+        type: 'areaspline'
+    	},
+    title: {
+        text: null,
+    },
+    legend: false,
+    xAxis:{ gridLineWidth: 0,
+		labels: 
+		   {enabled: false, },},
+	
+    yAxis: {gridLineWidth: 0,
+        title: {
+            text: null,
+        },
+		labels: {
+			enabled: false,
+		},
+		min: 0,
+        max: 100,
+        tickInterval: 4,
+    },
+    tooltip: {
+        shared: true,
+        valueSuffix: ' units'
+    },
+    credits: {
+        enabled: false
+    },
+    plotOptions: {
+        areaspline: {
+            fillOpacity: 0.5
+        },
+		
+    },
+	
+    series: [{
+        name: 'This Month Dispatched ',
+        data: [60,20,35,15, 90, 20, 30],
+		marker: {
+            enabled: false
+        		},
+				color: '#98ebd5'
+    			},
+		
+		{
+        name: 'Deliverable Items Dispatched ',
+        data: [25,35,15,11],
+			marker: {
+            enabled: false
+        			},
+		color: '#e7d546'
+    }]
+});
+</script>
+</body>
+</html>
