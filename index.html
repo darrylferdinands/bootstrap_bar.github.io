@@ -12,10 +12,7 @@
   width: 250px;
   margin: 20px auto;
 }
-		#progress1 {
-  width: 250px;
-  margin: 20px auto;
-}
+	
 #myProgress {
   width: 50%;
   background-color: #d4f7ed;
@@ -31,21 +28,9 @@
   color: white;
   border-radius: 10px;
 }
-#myProgress1 {
-  width: 50%;
-  background-color: #f9f4d2;
-  border-radius: 10px;
-}
 
-#myBar1 {
-  width: 50%;
-  height: 20px;
-  background-color: #ede078;
-  text-align: center;
-  line-height: 20px;
-  color: white;
-  border-radius: 10px;
-}
+
+
 	</style>
 </head>
 <body><br>
@@ -61,10 +46,10 @@
             <div id="myBar">10%</div>
 
         </div>
-<a style="font-size: 12px;"> Deliverable Items Dispatched </a>
-<div id="myProgress1">
-<div id="myBar1">50%</div>
-</div></div>
+
+
+
+</div>
 <div id="dispatchActivities"></div>
 </div></div></div>
 
@@ -78,19 +63,7 @@
 
 
 window.onload = function(){
-  var elem = document.getElementById("myBar1");   
-  var width = 10;
-  var id = setInterval(frame, 10);
-  function frame() {
-    if (width >= 40) {
-      clearInterval(id);
-    } else {
-      width++; 
-      elem.style.width = width + '%'; 
-      elem.innerHTML = width * 1  + '%';
-    }
-  
-};
+
   var elem = document.getElementById("myBar");   
   var width = 10;
   var id = setInterval(frame, 10);
